@@ -20,11 +20,43 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgImage" translatesAutoresizingMaskIntoConstraints="NO" id="enB-bf-YRQ">
+                                <rect key="frame" x="-50" y="-50" width="475" height="767"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AjY-7Z-QE4" customClass="GradientButton" customModule="FbTestApp" customModuleProvider="target">
+                                <rect key="frame" x="72" y="514" width="230" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="7Ab-Yr-y6b"/>
+                                    <constraint firstAttribute="height" constant="44" id="Ahm-Qb-Vpq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="enB-bf-YRQ" secondAttribute="bottom" constant="-50" id="9V6-gM-oYV"/>
+                            <constraint firstItem="AjY-7Z-QE4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OPo-fQ-GNb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AjY-7Z-QE4" secondAttribute="bottom" constant="109" id="SZ1-1a-yZL"/>
+                            <constraint firstAttribute="trailing" secondItem="enB-bf-YRQ" secondAttribute="trailing" constant="-50" id="XCx-mT-F30"/>
+                            <constraint firstItem="enB-bf-YRQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-50" id="fdr-4F-hpV"/>
+                            <constraint firstItem="enB-bf-YRQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-50" id="gKw-va-Qro"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="enB-bf-YRQ" id="03x-Je-buM"/>
+                        <outlet property="loginButton" destination="AjY-7Z-QE4" id="MyM-J8-3OR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="36" y="37.331334332833585"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bgImage" width="1024" height="768"/>
+    </resources>
 </document>

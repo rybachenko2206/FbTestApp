@@ -14,6 +14,7 @@
 		42E99A411E4388EC00D3DF0A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E99A401E4388EC00D3DF0A /* LoginViewController.swift */; };
 		42E99A461E43899A00D3DF0A /* UIStoryboard+Multiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E99A431E43899A00D3DF0A /* UIStoryboard+Multiple.swift */; };
 		42E99A481E43899A00D3DF0A /* UIViewController+Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E99A451E43899A00D3DF0A /* UIViewController+Methods.swift */; };
+		42E99A4B1E438D0B00D3DF0A /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E99A4A1E438D0B00D3DF0A /* GradientButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		42E99A401E4388EC00D3DF0A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		42E99A431E43899A00D3DF0A /* UIStoryboard+Multiple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Multiple.swift"; sourceTree = "<group>"; };
 		42E99A451E43899A00D3DF0A /* UIViewController+Methods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Methods.swift"; sourceTree = "<group>"; };
+		42E99A4A1E438D0B00D3DF0A /* GradientButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		42E99A3E1E4388AD00D3DF0A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				42E99A4A1E438D0B00D3DF0A /* GradientButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E99A4B1E438D0B00D3DF0A /* GradientButton.swift in Sources */,
 				42E99A481E43899A00D3DF0A /* UIViewController+Methods.swift in Sources */,
 				42E99A411E4388EC00D3DF0A /* LoginViewController.swift in Sources */,
 				42E99A3F1E4388AD00D3DF0A /* AppDelegate.swift in Sources */,
