@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FacebookLogin
 
 class LoginViewController: UIViewController {
     // MARK: Outlets
@@ -23,6 +24,26 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         applyMotionEffect(toView: backgroundImageView, magnitude: Float(motionMagnitude))
+    }
+    
+    
+    // MARK: Action funcs
+    @IBAction func loginButtonTapped(_ sender: GradientButton) {
+        let loginManager = LoginManager()
+        
+        loginManager.logIn([.publicProfile],
+                           viewController: self,
+                           completion: {(result: LoginResult) -> Void in
+                            
+                            switch result {
+                                case .failed(let error):
+                                    print("login error = \(error)")
+                                case .cancelled:
+                                    print("User cancelled login.")
+                            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+                                    print("Logged in!")
+                            }
+        })
     }
     
 

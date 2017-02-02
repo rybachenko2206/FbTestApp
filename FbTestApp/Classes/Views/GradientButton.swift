@@ -16,7 +16,7 @@ class GradientButton: UIButton {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.bounds
         gradientLayer.colors = [UIColor.blue.cgColor, UIColor.yellow.cgColor]
-        gradientLayer.startPoint = CGPoint.zero
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
         self.layer.insertSublayer(gradientLayer, at: 0)
         
         self.layer.cornerRadius = 6
