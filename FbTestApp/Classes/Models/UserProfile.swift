@@ -24,7 +24,7 @@ let kCover = "cover"
 let kGender = "gender"
 let kSource = "source"
 
-typealias success = (Bool) -> Void
+typealias completion = (_ success: Bool, _ error: Error?) -> Void
 
 
 class UserProfile: GraphRequestProtocol {
@@ -67,18 +67,18 @@ class UserProfile: GraphRequestProtocol {
     var httpMethod: GraphRequestHTTPMethod = .GET
     var apiVersion: GraphAPIVersion = .defaultVersion
     
-    func getProfile(success: @escaping success) {
+    func getProfile(completion: @escaping completion) {
         let connection = GraphRequestConnection()
         connection.add(UserProfile()) { response, result in
             switch result {
             case .success(let response):
                 print("~~Custom Graph Request Succeeded: \(response)")
                 self.response = response
-                success(true)
+                completion(true, nil)
                 
             case .failed(let error):
                 print("~~Custom Graph Request Failed: \(error)")
-                success(false)
+                completion(false, error)
             }
         }
         connection.start()

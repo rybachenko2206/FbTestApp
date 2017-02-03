@@ -7,4 +7,5 @@ target 'FbTestApp' do
   pod 'FacebookShare'
   pod 'SVProgressHUD'
   pod 'SwiftyJSON'
+  pod 'SDWebImage'
 end

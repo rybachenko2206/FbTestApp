@@ -10,6 +10,7 @@ import UIKit
 import FacebookLogin
 import FacebookCore
 import SVProgressHUD
+import SDWebImage
 
 class UserInfoViewController: UIViewController {
     // MARK: Outlets
@@ -48,28 +49,49 @@ class UserInfoViewController: UIViewController {
 
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
         print("\n~~logout")
-        LoginManager().logOut()
+        let titleStr = ""
+        let msgStr = ""
+        let ac = UIAlertController(title: titleStr, message: msgStr, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .cancel,
+                                         handler: nil)
+        ac.addAction(cancelAction)
         
-        showLoginViewController(animated: true)
+        let yesAction = UIAlertAction(title: "YES",
+                                      style: .default,
+                                      handler: {action in
+                                        
+                                        LoginManager().logOut()
+                                        self.showLoginViewController(animated: true)
+        })
+        ac.addAction(yesAction)
+        
+        present(ac, animated: true, completion: nil)
     }
     
     // MARK: Private funcs
     private func showUserProfile(_ userProfile: UserProfile) {
         nameLabel.text = userProfile.response!.name
         genderLabel.text = userProfile.response!.gender
+        
+        let avatarUrl = URL(string: userProfile.response!.avatarLink)
+        avatarImageView.sd_setImage(with: avatarUrl)
+        
+        let coverUrl = URL(string: userProfile.response!.coverLink)
+        coverImageView.sd_setImage(with: coverUrl)
     }
 
     private func getUserProfile() {
         let userProfile = UserProfile()
         
         SVProgressHUD.show()
-        userProfile.getProfile() { [unowned self] success in
+        userProfile.getProfile() { [unowned self] success, error in
             SVProgressHUD.dismiss()
             print("get profile success = \(success)")
             if success == true {
                 self.showUserProfile(userProfile)
             } else {
-                // TODO: show alert error
+                self.showAlertWithError(error!)
             }
         }
     }
@@ -79,5 +101,17 @@ class UserInfoViewController: UIViewController {
         var viewControllers = self.navigationController?.viewControllers
         viewControllers?.append(loginVc)
         self.navigationController?.setViewControllers(viewControllers!, animated: animated)
+    }
+    
+    private func showAlertWithError(_ error: Error) {
+        let title = "Error!"
+        let msg = error.localizedDescription
+        
+        let ac = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        ac.addAction(okAction)
+        
+        present(ac, animated: true, completion: nil)
     }
 }
