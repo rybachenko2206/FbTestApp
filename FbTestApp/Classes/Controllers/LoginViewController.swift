@@ -40,8 +40,13 @@ class LoginViewController: UIViewController {
                                     print("login error = \(error)")
                                 case .cancelled:
                                     print("User cancelled login.")
-                            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+                                case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                                     print("Logged in!")
+                                    print("~~grantedPermissions = \(grantedPermissions)")
+                                    print("~~declinedPermissions = \(declinedPermissions)")
+                                    print("~~accessToken = \(accessToken)")
+                                
+                                    self.dismiss(animated: true, completion: nil)
                             }
         })
     }
