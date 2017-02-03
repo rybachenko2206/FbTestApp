@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonTapped(_ sender: GradientButton) {
         let loginManager = LoginManager()
         
-        loginManager.logIn([.publicProfile],
+        loginManager.logIn([.publicProfile, .email],
                            viewController: self,
                            completion: {(result: LoginResult) -> Void in
                             

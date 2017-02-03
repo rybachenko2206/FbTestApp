@@ -49,7 +49,7 @@ class UserInfoViewController: UIViewController {
 
     @IBAction func logoutButtonTapped(_ sender: UIButton) {
         print("\n~~logout")
-        let titleStr = ""
+        let titleStr = "Logout?"
         let msgStr = ""
         let ac = UIAlertController(title: titleStr, message: msgStr, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel",
@@ -73,6 +73,9 @@ class UserInfoViewController: UIViewController {
     private func showUserProfile(_ userProfile: UserProfile) {
         nameLabel.text = userProfile.response!.name
         genderLabel.text = userProfile.response!.gender
+        
+        birthdayLabel.text = userProfile.response?.birthday == nil ? "" : userProfile.response!.birthday! as! String
+        
         
         let avatarUrl = URL(string: userProfile.response!.avatarLink)
         avatarImageView.sd_setImage(with: avatarUrl)

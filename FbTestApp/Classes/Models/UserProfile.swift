@@ -23,6 +23,7 @@ let kUrl = "url"
 let kCover = "cover"
 let kGender = "gender"
 let kSource = "source"
+let kEmail = "email"
 
 typealias completion = (_ success: Bool, _ error: Error?) -> Void
 
@@ -40,6 +41,7 @@ class UserProfile: GraphRequestProtocol {
         private(set) public var avatarLink: String = ""
         private(set) public var coverLink: String = ""
         private(set) public var gender: String = ""
+        private(set) public var email: String = ""
         
         private(set) public var location: AnyObject?
         private(set) public var hometown: String?
@@ -56,13 +58,14 @@ class UserProfile: GraphRequestProtocol {
             self.avatarLink = json[kPicture][kData][kUrl].stringValue
             self.coverLink = json[kCover][kSource].stringValue
             self.gender = json[kGender].stringValue
+            self.email = json[kEmail].stringValue
             
             // TODO: resolve getting params: location, hometown, birthday
         }
     }
     
     var graphPath = "/me"
-    var parameters: [String : Any]? = ["fields": "id, name, first_name, birthday, location, last_name, gender, hometown, picture.type(large), cover.type(large)"]
+    var parameters: [String : Any]? = ["fields": "id, name, first_name, email, birthday, hometown, location, last_name, gender, picture.type(large), cover.type(large)"]
     var accessToken = AccessToken.current
     var httpMethod: GraphRequestHTTPMethod = .GET
     var apiVersion: GraphAPIVersion = .defaultVersion
