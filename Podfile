@@ -6,4 +6,5 @@ target 'FbTestApp' do
   pod 'FacebookLogin'
   pod 'FacebookShare'
   pod 'SVProgressHUD'
+  pod 'SwiftyJSON'
 end

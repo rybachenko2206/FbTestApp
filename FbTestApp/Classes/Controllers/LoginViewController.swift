@@ -26,6 +26,12 @@ class LoginViewController: UIViewController {
         applyMotionEffect(toView: backgroundImageView, magnitude: Float(motionMagnitude))
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     
     // MARK: Action funcs
     @IBAction func loginButtonTapped(_ sender: GradientButton) {
@@ -42,11 +48,8 @@ class LoginViewController: UIViewController {
                                     print("User cancelled login.")
                                 case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                                     print("Logged in!")
-                                    print("~~grantedPermissions = \(grantedPermissions)")
-                                    print("~~declinedPermissions = \(declinedPermissions)")
-                                    print("~~accessToken = \(accessToken)")
                                 
-                                    self.dismiss(animated: true, completion: nil)
+                                    self.navigationController?.popToRootViewController(animated: true)
                             }
         })
     }
